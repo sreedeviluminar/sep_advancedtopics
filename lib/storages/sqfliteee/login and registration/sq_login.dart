@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sq_admin_home.dart';
 import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sq_registration.dart';
+import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sql_functionn.dart';
 
 class Sq_Login extends StatelessWidget {
   var formkey     = GlobalKey<FormState>();
@@ -8,6 +10,19 @@ class Sq_Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    void loginUser(String email, String pwd) async {
+      //admin login
+      if (email == 'admin@gmail' && pwd == "admin123"){
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context)=>AdminHome()));
+      }else{
+        //check if user is exist in db
+        var data = await SQL_Functions.checkUserExist(email,pwd);
+      }
+    }
+
+
     return Scaffold(
       body: Center(
         child: Form(
@@ -44,8 +59,16 @@ class Sq_Login extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                  onPressed: () {},
-                  child: Text("Login Now")),
+                  onPressed: () {
+                    var valid = formkey.currentState!.validate();
+                    if (valid) {
+                       loginUser(email_cntrl.text, pass_cntrl.text);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("Please Verify All the Fields")));
+                    }
+                  },
+                  child: const Text("Login Now")),
               const SizedBox(
                 height: 20,
               ),
@@ -61,4 +84,5 @@ class Sq_Login extends StatelessWidget {
       ),
     );
   }
+
 }
