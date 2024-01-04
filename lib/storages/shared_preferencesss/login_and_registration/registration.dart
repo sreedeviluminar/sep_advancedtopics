@@ -91,15 +91,13 @@ class _Register_SharedState extends State<Register_Shared> {
 
     //int phone_num = phone_controller.text as int;
 
-    int phone_num =
-        int.parse(phone_controller.text); // convert string to integer
+    int phone_num = int.parse(phone_controller.text); // convert string to integer
     preferences = await SharedPreferences.getInstance();
 
     preferences.setString('username', email);
     preferences.setString('pass', password);
     preferences.setInt('phone', phone_num);
 
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => LoginShared()));
+    Navigator.push(context,MaterialPageRoute(builder: (context) => LoginShared()));
   }
 }
