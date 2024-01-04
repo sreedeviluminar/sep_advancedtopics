@@ -105,7 +105,7 @@ class _LoginSharedState extends State<LoginShared> {
 
   void validateInput() async {
     String uname = uname_controller.text;
-    String pwd = pass_controller.text;
+    String pwd   = pass_controller.text;
     preferences = await SharedPreferences.getInstance();
     //if a user is logged in then mark it as not a new user
     preferences.setBool('newUser', false);
