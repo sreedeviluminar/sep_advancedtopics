@@ -32,7 +32,7 @@ class SQL_Functions{
   static Future<List<Map>> checkUserExist(String email, String pwd) async {
     var db = await SQL_Functions.openOrCreateDb(); // TO OPEN DATABASE
     final data = await db.rawQuery(
-        'SELECT * FROM userdata WHERE email =$email AND password =$pwd ');
+        "SELECT * FROM userdata WHERE email ='$email' AND password ='$pwd' ");
     if (data.isNotEmpty) {
       return data;
     } else {

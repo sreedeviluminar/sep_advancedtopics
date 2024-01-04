@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sq_admin_home.dart';
 import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sq_registration.dart';
+import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sq_user_home.dart';
 import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sql_functionn.dart';
 
 class Sq_Login extends StatelessWidget {
@@ -19,6 +20,11 @@ class Sq_Login extends StatelessWidget {
       }else{
         //check if user is exist in db
         var data = await SQL_Functions.checkUserExist(email,pwd);
+
+        if(data.isNotEmpty){
+          Navigator.pushReplacement(context, MaterialPageRoute(
+              builder: (context)=> UserHome(data: data)));
+        }
       }
     }
 
