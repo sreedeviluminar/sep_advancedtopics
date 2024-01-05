@@ -77,9 +77,11 @@ class Sq_Register extends StatelessWidget {
                 ),
               ),
               ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async{
                     var valid = formkey.currentState!.validate();
-                    if (valid == true) {
+                    if (valid == true){
+                      var users = await SQL_Functions.checkUser_already_registered(email_cntrl.text);
+
                       registerUser(
                           name_cntrl.text, email_cntrl.text, pass_cntrl.text);
                     } else {
