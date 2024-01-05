@@ -28,7 +28,6 @@ class Sq_Login extends StatelessWidget {
       }
     }
 
-
     return Scaffold(
       body: Center(
         child: Form(
