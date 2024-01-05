@@ -18,24 +18,34 @@ class UserHome extends StatelessWidget {
             return AlertDialog(
                 title: const Text(
                   "Edit Data",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 25),
                 ),
                 content: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
                       controller: cname,
                       decoration: const InputDecoration(
                           border: OutlineInputBorder(), hintText: "Edit Name"),
                     ),
+                    SizedBox(height: 15,),
                     TextField(
                       controller: cemail,
                       decoration: const InputDecoration(
                           border: OutlineInputBorder(), hintText: "Edit Email"),
                     ),
+                    SizedBox(height: 15,),
+
                     ElevatedButton(
                         onPressed: () async {}, child: Text("Update Data"))
                   ],
-                ));
+                ),
+              // actions: [
+              //   TextButton(onPressed: (){}, child: Text('Yes')),
+              //   TextButton(onPressed: (){}, child: Text('No')),
+              //   TextButton(onPressed: (){}, child: Text('Cancel'))
+              // ],
+            );
           });
     }
 
