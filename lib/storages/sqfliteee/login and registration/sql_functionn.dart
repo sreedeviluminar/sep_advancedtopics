@@ -54,11 +54,15 @@ class SQL_Functions {
   }
 
   /// to read  all the users from the db
-  static Future<List<Map>> getAllUsers() async {
+  static Future<List<Map<String,dynamic>>> getAllUsers() async {
     var db = await SQL_Functions.openOrCreateDb(); // TO OPEN DATABASE
     final allUsers = await db.rawQuery("SELECT * FROM userdata");
     return allUsers;
   }
 
   ///to delete a user
+  static Future<void> dltUser(int id) async {
+    var db = await SQL_Functions.openOrCreateDb(); // TO OPEN DATABASE
+    db.delete('userdata', where: 'id = ?', whereArgs: [id]);
+  }
 }

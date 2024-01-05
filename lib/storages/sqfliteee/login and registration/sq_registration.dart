@@ -80,10 +80,18 @@ class Sq_Register extends StatelessWidget {
                   onPressed: () async{
                     var valid = formkey.currentState!.validate();
                     if (valid == true){
+
                       var users = await SQL_Functions.checkUser_already_registered(email_cntrl.text);
 
-                      registerUser(
-                          name_cntrl.text, email_cntrl.text, pass_cntrl.text);
+                      if (users.isNotEmpty) {
+
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("User Already Registered!!!")));
+
+                      } else {
+                        registerUser(
+                            name_cntrl.text, email_cntrl.text, pass_cntrl.text);
+                      }
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text("Please Verify All the Fields")));
