@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sq_login.dart';
 import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sql_functionn.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: Sq_Register(),
-  ));
-}
 
 class Sq_Register extends StatelessWidget {
   var formkey = GlobalKey<FormState>();

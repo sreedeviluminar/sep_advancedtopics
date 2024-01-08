@@ -65,4 +65,11 @@ class SQL_Functions {
     var db = await SQL_Functions.openOrCreateDb(); // TO OPEN DATABASE
     db.delete('userdata', where: 'id = ?', whereArgs: [id]);
   }
+
+  static  Future<int> update(int id, String uname,String uemail) async{
+    var db = await SQL_Functions.openOrCreateDb(); // TO OPEN DATABASE
+    final newdata = {'name' :uname,'email':uemail};
+    final newid = await db.update('userdata', newdata, where: 'id = ?', whereArgs: [id]);
+    return newid;
+  }
 }

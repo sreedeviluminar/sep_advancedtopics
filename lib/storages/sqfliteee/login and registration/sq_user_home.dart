@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sql_functionn.dart';
 
 class UserHome extends StatefulWidget {
   final data;
@@ -10,14 +11,19 @@ class UserHome extends StatefulWidget {
 }
 
 class _UserHomeState extends State<UserHome> {
+  var cemail = TextEditingController();
+  var cname = TextEditingController();
+  var name,email;
+
+  @override
+  void initState() {
+    ///fetching the user details and assign it to these instance variables
+    name = widget.data[0]['name'];
+    email = widget.data[0]['email'];
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
-    ///fetching the current user email and name 
-    var name   = widget.data[0]['name'];
-    var email  = widget.data[0]['email'];
-    
-    var cemail = TextEditingController();
-    var cname  = TextEditingController();
 
     void editData() {
       setState(() {
@@ -49,7 +55,7 @@ class _UserHomeState extends State<UserHome> {
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(), hintText: "Edit Email"),
                   ),
-                  SizedBox(height: 15,),
+                  const SizedBox(height: 15,),
 
                   ElevatedButton(
                       onPressed: (){
@@ -59,8 +65,7 @@ class _UserHomeState extends State<UserHome> {
                         });
                         updateUser();
                         Navigator.of(context).pop();
-                        cname.text ="";
-                        cemail.text="";
+
                       }, child: Text("Update Data"))
                 ],
               ),
@@ -98,5 +103,7 @@ class _UserHomeState extends State<UserHome> {
         ));
   }
 
-  void updateUser() {}
+  void updateUser() async {
+    await SQL_Functions.update(widget.data[0]['id'], name, email);
+  }
 }

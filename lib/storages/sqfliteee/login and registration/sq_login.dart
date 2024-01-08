@@ -4,6 +4,12 @@ import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration
 import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sq_user_home.dart';
 import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration/sql_functionn.dart';
 
+
+void main() {
+  runApp(MaterialApp(
+    home: Sq_Register(),
+  ));
+}
 class Sq_Login extends StatelessWidget {
   var formkey     = GlobalKey<FormState>();
   var email_cntrl = TextEditingController();
