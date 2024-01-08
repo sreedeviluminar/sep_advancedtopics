@@ -7,7 +7,7 @@ import 'package:sep_advancedtopics/storages/sqfliteee/login%20and%20registration
 
 void main() {
   runApp(MaterialApp(
-    home: Sq_Register(),
+    home: Sq_Login(),
   ));
 }
 class Sq_Login extends StatelessWidget {
