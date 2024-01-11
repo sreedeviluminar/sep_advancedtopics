@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:sep_advancedtopics/animations/animation%20in%20navigation/second_page_animation.dart';
 
 void main() {
@@ -60,8 +61,8 @@ class Main_Animation extends StatelessWidget {
                           child: child,
                         );
                       },
-                      transitionDuration:
-                          Duration(milliseconds: 600), // Set your duration
+                      transitionDuration: const Duration(
+                          milliseconds: 600), // Set your duration
                     ),
                   );
                 },
@@ -90,6 +91,20 @@ class Main_Animation extends StatelessWidget {
                       ));
                 },
                 child: const Text("Slide Animation")),
+            const SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      PageTransition(
+                          duration: const Duration(seconds: 1),
+                          type: PageTransitionType.topToBottomPop,
+                          child: Second_Page_Animation(),
+                          childCurrent: this));
+                },
+                child: const Text("Using Package"))
           ],
         ),
       ),
