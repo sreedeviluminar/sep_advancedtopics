@@ -44,14 +44,12 @@ class _SearchSetTextDemoState extends State<SearchSetTextDemo> {
 
   String searchText = '';
   String searchResult = '';
-
   void filterItems(String query) {
     setState(() {
       searchText = query;
       searchResult = ''; // Reset the search result when typing in the search field
     });
   }
-
   void setSearchResult(String result) {
     setState(() {
       searchResult = result;
@@ -60,9 +58,9 @@ class _SearchSetTextDemoState extends State<SearchSetTextDemo> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> filteredItems = allItems
-        .where((item) => item.toLowerCase().contains(searchText.toLowerCase()))
-        .toList();
+    List<String> filteredItems = allItems.where(
+            (item) => item.toLowerCase().
+            contains(searchText.toLowerCase())).toList();
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -72,7 +70,7 @@ class _SearchSetTextDemoState extends State<SearchSetTextDemo> {
             onChanged: (value) {
               filterItems(value);
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Search',
               hintText: 'Enter a fruit name',
               prefixIcon: Icon(Icons.search),
