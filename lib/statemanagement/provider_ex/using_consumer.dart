@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'controller/counter_controller.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -39,12 +39,8 @@ class MyHomePage extends StatelessWidget {
                   '${counterProvider.counter}',
                   style: const TextStyle(fontSize: 24,
                       fontWeight: FontWeight.bold),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+                );},),],),),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Using Consumer to call the increment method
