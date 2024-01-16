@@ -46,9 +46,9 @@ class Multi_Providerr extends StatelessWidget {
             ),
             ElevatedButton(
                 onPressed: () {
-                  Provider.of<Auth_Provider>(context).login
-                      ? Provider.of<Auth_Provider>(context).logedOut()
-                      : Provider.of<Auth_Provider>(context).logedin();
+                  Provider.of<Auth_Provider>(context,listen: false).login
+                      ? Provider.of<Auth_Provider>(context,listen: false).logedOut()
+                      : Provider.of<Auth_Provider>(context,listen: false).logedin();
                 },
                 child: const Text("Switch Login")),
             Consumer<Auth_Provider>(builder: (context, authprovider, child) {
