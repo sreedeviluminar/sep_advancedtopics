@@ -6,15 +6,14 @@ import 'controller/counter_controller.dart';
 void main() {
   runApp(MaterialApp(
     home: ChangeNotifierProvider(
-        create: (context) => CounterProvier(), child: Counter_Provider_Ex()),
+        create: (context) => CounterProvider(), child: Counter_Provider_Ex()),
   ));
 }
 
 class Counter_Provider_Ex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    var counterController = Provider.of<CounterProvier>(context);
+    var counterController = Provider.of<CounterProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -30,15 +29,13 @@ class Counter_Provider_Ex extends StatelessWidget {
             ),
             const SizedBox(height: 15,),
             Text(
-              'Counter Value : ${counterController.counter_value.value} ',
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
+              'Counter Value : ${counterController.counter.value} ',
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             const SizedBox(height: 15,),
             ElevatedButton(
                 onPressed: () {
-                  counterController.increment_Count();
+                  counterController.increment();
                 },
                 child: const Text('Increment Value'))
           ],
