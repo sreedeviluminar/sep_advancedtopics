@@ -1,0 +1,55 @@
+provider package, the concepts of reading and watching are related to
+how widgets obtain and respond to changes in the values provided by a ChangeNotifier
+or other similar objects. Here's an explanation of reading and watching in the context of the
+provider package:
+
+Reading:
+Provider.of method: This method is used to obtain the current value of a provider.
+                    It is typically used within the build method of a widget.
+
+var myData = Provider.of<MyDataProvider>(context);
+In this example, myData now holds the current value of the MyDataProvider within the widget tree.
+
+Watching:
+Consumer widget: The Consumer widget is used to listen to changes in a provider
+                 and rebuild part of the widget tree when the provider's value changes.
+
+
+Consumer<MyDataProvider>(
+  builder: (context, myData, child) {
+    // Widget tree to rebuild when myData changes
+    return Text(myData.someValue);
+  },
+)
+In this example, the Text widget will be rebuilt whenever the value in MyDataProvider changes.
+ProviderListener widget: Similar to Consumer, ProviderListener listens to changes in a provider
+but does not rebuild any part of the widget tree. It's useful for performing side effects
+when a provider changes.
+
+
+ProviderListener<MyDataProvider>(
+  onChange: (context, myData) {
+    // Do something when myData changes
+  },
+  child: SomeWidget(),
+)
+
+Selector widget: This widget allows you to fine-tune which parts of the widget tree
+                 should rebuild based on specific parts of the provider's value.
+
+
+Selector<MyDataProvider, String>(
+  selector: (context, myData) => myData.someValue,
+  builder: (context, value, child) {
+    // Only rebuild when myData.someValue changes
+    return Text(value);
+  },
+)
+
+Listening without rebuilding:
+
+When using Provider.of to read the provider, you can pass " listen: false "
+to prevent the widget from rebuilding when the provider's value changes.
+
+var myData = Provider.of<MyDataProvider>(context, listen: false);
+This is useful when you only need to obtain the current value but don't want to trigger a rebuild.
