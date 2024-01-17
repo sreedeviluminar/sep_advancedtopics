@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "526881800339",
+    "project_id": "healthy-reason-330908",
+    "storage_bucket": "healthy-reason-330908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526881800339:android:a4ad1898b85bf2605c0d66",
+        "android_client_info": {
+          "package_name": "com.luminar.sep_advancedtopics"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnOUuyX1k1DLl7FyaU8gFj_CH6Evp9iZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
