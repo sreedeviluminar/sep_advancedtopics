@@ -9,7 +9,7 @@ class FireBaseHelper {
   Future<String?> registerUser(
       {required String email, required String pwd}) async {
     try {
-      auth.createUserWithEmailAndPassword(
+    await  auth.createUserWithEmailAndPassword(
         email: email,
         password: pwd,
       );
@@ -25,7 +25,7 @@ class FireBaseHelper {
   Future<String?> loginUser(
       {required String email, required String pwd}) async {
     try {
-      auth.signInWithEmailAndPassword(email: email, password: pwd);
+      await auth.signInWithEmailAndPassword(email: email, password: pwd);
       return null;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
