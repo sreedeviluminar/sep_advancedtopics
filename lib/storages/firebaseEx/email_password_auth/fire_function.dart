@@ -6,8 +6,7 @@ class FireBaseHelper {
   get user => auth.currentUser;
 
 //user signUp
-  Future<String?> registerUser(
-      {required String email, required String pwd}) async {
+  Future<String?> registerUser({required String email, required String pwd}) async {
     try {
     await  auth.createUserWithEmailAndPassword(
         email: email,
