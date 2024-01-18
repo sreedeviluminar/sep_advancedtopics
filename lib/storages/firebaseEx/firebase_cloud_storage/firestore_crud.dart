@@ -117,26 +117,6 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
       ),
     );
   }
-
-  /// create user
-  Future<void> addUser() async {
-    return _userCollection.add({
-      'name': name_controller.text,
-      'email': email_controller.text
-    }).then((value) {
-      print("user added successfully");
-      name_controller.clear();
-      email_controller.clear();
-    }).catchError((error) {
-      print("failed to add user $error");
-    });
-  }
-
-  ///read user
-  Stream<QuerySnapshot> getUser() {
-    return _userCollection.snapshots();
-  }
-
   void editUser(var id) {
     showDialog(
         context: context,
@@ -177,6 +157,27 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
         });
   }
 
+
+  /// create user
+  Future<void> addUser() async {
+    return _userCollection.add({
+      'name': name_controller.text,
+      'email': email_controller.text
+    }).then((value) {
+      print("user added successfully");
+      name_controller.clear();
+      email_controller.clear();
+    }).catchError((error) {
+      print("failed to add user $error");
+    });
+  }
+
+  ///read user
+  Stream<QuerySnapshot> getUser() {
+    return _userCollection.snapshots();
+  }
+
+
   ///update user
   Future<void> updateUser(var id, String newname, String newemail) {
     return _userCollection
@@ -195,4 +196,5 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
       print("User deletion failed $error");
     });
   }
+
 }
