@@ -47,6 +47,7 @@ dependencies:
   firebase_storage:          # to store images videos audios etc
   image_picker:              # fetch image from cam or gallery
   path:                      # fetch the system path of that particular images
+  permission_handler:
 
 
 dev_dependencies:
