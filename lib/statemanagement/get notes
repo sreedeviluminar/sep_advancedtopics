@@ -9,7 +9,7 @@ class MyController extends GetxController {
 2. Observables (.obs): To make a variable observable and automatically update the UI when it changes,
                        use the .obs extension.
 
-var myVariable = 0.obs;
+var myVariable = value.obs;
 
 3. Get.put for Dependency Injection: To instantiate a controller and make it available
                                      for the entire widget tree, use Get.put().
