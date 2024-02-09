@@ -17,7 +17,6 @@ class Sq_Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     void loginUser(String email, String pwd) async {
       //admin login
       if (email == 'admin@gmail' && pwd == "admin123"){
@@ -26,7 +25,6 @@ class Sq_Login extends StatelessWidget {
       }else{
         //check if user is exist in db
         var data = await SQL_Functions.checkUserExist(email,pwd);
-
         if(data.isNotEmpty){
           Navigator.pushReplacement(context, MaterialPageRoute(
               builder: (context)=> UserHome(data: data)));

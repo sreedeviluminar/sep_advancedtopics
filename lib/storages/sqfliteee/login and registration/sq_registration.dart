@@ -11,16 +11,14 @@ class Sq_Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     void registerUser(String name, String email, String password) async {
-      var id = await SQL_Functions.addUser(
-          name, email, password); // id that return when we add new users
+      var id = await SQL_Functions.addUser(name, email, password); // id that return when we add new users
       print(id);
       if (id != null) {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Sq_Login()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Sq_Login()));
       } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Registration Failed")));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Registration Failed")));
       }
     }
 
@@ -84,8 +82,7 @@ class Sq_Register extends StatelessWidget {
                             content: Text("User Already Registered!!!")));
 
                       } else {
-                        registerUser(
-                            name_cntrl.text, email_cntrl.text, pass_cntrl.text);
+                        registerUser(name_cntrl.text, email_cntrl.text, pass_cntrl.text);
                       }
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
